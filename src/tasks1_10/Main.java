@@ -1,4 +1,4 @@
-package task;
+package tasks1_10;
 
 public class Main {
 
@@ -7,5 +7,9 @@ public class Main {
         Task2.run();
         Task3.run();
         Task4.run();
+        Task5.run();
+        Task6.run();
+        Task7.run();
+
     }
 }

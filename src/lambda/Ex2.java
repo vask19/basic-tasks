@@ -13,7 +13,7 @@ public class Ex2 {
     }
 
     public static void main(String[] args) {
-        printIs(List.of(new Employee("1",5),new Employee("2",20),new Employee("3",22)),(emp)->{return emp.age > 18;});
+        printIs(List.of(new Employee("1",5),new Employee("2",20),new Employee("3",22)),emp -> emp.age > 18);
     }
 
 }

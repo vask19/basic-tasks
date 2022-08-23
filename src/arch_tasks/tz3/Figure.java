@@ -10,4 +10,9 @@ public abstract class Figure implements Calculatable{
         this.length = length;
         this.high = high;
     }
+
+    @Override
+    public void print() {
+        System.out.println("name: " +  name);
+    }
 }

@@ -7,11 +7,8 @@ public class Parallelogram extends Figure{
 
     @Override
     public double calculateSquare() {
-        return 0;
+        return high*length;
     }
 
-    @Override
-    public void print() {
-        super.print(name);
-    }
+
 }

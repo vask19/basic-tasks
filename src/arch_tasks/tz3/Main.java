@@ -9,9 +9,10 @@ public class Main {
         Figure romb = new Parallelogram("romb",12.0,24.0);
         Figure triangle = new Parallelogram("triangle",43.0,22.0);
         List<Figure> figureList = List.of(parallelogram,romb,triangle);
-        figureList.stream().forEach(el ->{
-            el.calculateSquare();
+        figureList.forEach(el ->{
             el.print();
+            System.out.println(el.calculateSquare());
+
         });
     }
 }

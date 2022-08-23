@@ -10,8 +10,5 @@ public class Romb extends Figure{
         return 0;
     }
 
-    @Override
-    public void print() {
-        super.print(name);
-    }
+
 }

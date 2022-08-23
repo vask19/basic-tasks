@@ -1,6 +1,6 @@
 package arch_tasks.tz3;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     public Triangle(String name, double length, double high) {
         super(name, length, high);
     }
@@ -10,8 +10,4 @@ public class Triangle extends Figure{
         return 0;
     }
 
-    @Override
-    public void print() {
-        super.print(name);
-    }
 }

@@ -4,7 +4,6 @@ public interface Calculatable {
     double calculateSquare();
 
     default void print() {
-        System.out.println("name: " );
-
+        System.out.println(this.getClass().getSimpleName());
     }
 }

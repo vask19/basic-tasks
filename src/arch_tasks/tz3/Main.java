@@ -11,8 +11,9 @@ public class Main {
         List<Figure> figureList = List.of(parallelogram,romb,triangle);
         figureList.forEach(el ->{
             el.print();
-            System.out.println(el.calculateSquare());
+          //  System.out.println(el.calculateSquare());
 
         });
+
     }
 }

@@ -27,15 +27,8 @@ public class Reader {
     private LocalDate date;
     private String phoneNumber;
 
-
-
-
-
     public void takeBook(int count){
         System.out.print(firstname + " " + lastname + "takes + " + count + " books");
-
-    }
-    public void takeBook(){
 
     }
 
@@ -48,9 +41,6 @@ public class Reader {
     public void takeBook(Book... arg){
         System.out.println(firstname + " " + lastname + " takes: ");
         Arrays.stream(arg).forEach(el -> System.out.print(el.getName() + " "));
-
-
-
     }
 
     public void returnBook(){

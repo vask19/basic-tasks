@@ -9,6 +9,4 @@ public class Parallelogram extends Figure{
     public double calculateSquare() {
         return high*length;
     }
-
-
 }

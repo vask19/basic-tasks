@@ -22,8 +22,6 @@ public class TimeZoneExample
         DATETIME_format = "yyyy-MM-dd HH:mm:ss.SS";
 
         Date date   = new Date();
-        Date dt_msk = null;
-
         TimeZone tm_msk;
         tm_msk = TimeZone.getTimeZone(TIMEZONE_msc);
 
@@ -33,13 +31,7 @@ public class TimeZoneExample
         df_msk.setTimeZone(tm_msk);
 
         String date_msk = df_msk.format(date);
-
-        try {
-            dt_msk = df_msk.parse(date_msk);
-        } catch (ParseException e) {}
-
-        System.out.println ("Moscow\n" + dt_msk);
-        System.out.println (date_msk);
+            System.out.println (date_msk);
     }
 
 

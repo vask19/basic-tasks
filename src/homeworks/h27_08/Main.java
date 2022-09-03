@@ -1,24 +1,28 @@
 package homeworks.h27_08;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String usersTimeZone = getUsersTimeZone("London");
-        TimeZone timeZone = TimeZone.getTimeZone(usersTimeZone);
-        Calendar gregorianCalendar = new GregorianCalendar();
-        gregorianCalendar.setTimeZone(timeZone);
-        var q = timeZone.useDaylightTime();
+        Calendar calendar = new Calendar();
+        String tz = getUsersTimeZone("New-York");
+        String format = "yyyy-MM-dd HH:mm";
+        var date = getDateFromTimeZone(tz,format);
+        String date2 = "2022-09-05";
 
-        String  DATETIME_format;
-        DATETIME_format = "yyyy-MM-dd HH:mm:ss.SS";
-        DateFormat df_msk;
-        df_msk = new SimpleDateFormat(DATETIME_format);
-        df_msk.setTimeZone(timeZone);
-        Date date = new Date();
-        String date_msk = df_msk.format(date);
-        System.out.println(date_msk);
+
+        calendar.addEvent(date,"Погулять");
+        calendar.addEvent(date,"dsfsf");
+        calendar.addEvent(date,"Погулятsdfь");
+        calendar.addEvent(date2,"kre");
+
+        System.out.println(calendar.getEvent(date));
+        System.out.println(calendar.getEvent(date2));
+
+
 
 
 
@@ -26,8 +30,6 @@ public class Main {
 
 
     }
-
-
 
     public static String getUsersTimeZone(String usersCity){
         String[] timeZones = TimeZone.getAvailableIDs();
@@ -39,6 +41,14 @@ public class Main {
             }
         }
         return " ";
+    }
+
+    public static String getDateFromTimeZone(String timeZoneString,String format){
+        Date date   = new Date();
+        TimeZone timeZone = TimeZone.getTimeZone(timeZoneString);
+        DateFormat dateFormat = new SimpleDateFormat(format);
+        dateFormat.setTimeZone(timeZone);
+        return dateFormat.format(date);
     }
 
 }

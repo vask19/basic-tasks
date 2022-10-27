@@ -13,18 +13,18 @@ public class Calendar {
         this.events =  new HashMap<>();
     }
 
-    public List<String> getEvent(String date){
+    public List<String> getEvents(String date){
         return events.get(checkAndSubstringDate(date));
     }
 
     public void addEvent(String date, String event){
-        List<String> eventList = getEvent(date);
+        List<String> eventList = getEvents(date);
         if (eventList == null){
             eventList = new ArrayList<>();
             eventList.add(event);
             events.put(checkAndSubstringDate(date),eventList);
         }
-        eventList.add(event);
+        else eventList.add(event);
 
     }
 

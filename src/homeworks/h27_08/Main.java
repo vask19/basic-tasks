@@ -3,32 +3,84 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Main {
+    private static String format;
+
     public static void main(String[] args) {
+        format = "yyyy-MM-dd HH:mm";
         Calendar calendar = new Calendar();
-        String tz = getUsersTimeZone("New-York");
-        String format = "yyyy-MM-dd HH:mm";
-        var date = getDateFromTimeZone(tz,format);
-        String date2 = "2022-09-05";
+        Main main = new Main();
+        //main.part1(calendar);
+        //main.part2(calendar);
+        main.part3(format);
+        main.part4();
 
 
-        calendar.addEvent(date,"Погулять");
-        calendar.addEvent(date,"dsfsf");
-        calendar.addEvent(date,"Погулятsdfь");
-        calendar.addEvent(date2,"kre");
+       // System.out.println(date1.plus(1, ChronoUnit.YEARS));
 
-        System.out.println(calendar.getEvent(date));
-        System.out.println(calendar.getEvent(date2));
 
+    }
 
 
 
+    public void part1(Calendar calendar,String format){
+
+        String kievTimeZone = getUsersTimeZone("Kiev");
+        String warshawTimeZone = getUsersTimeZone("Warsaw");
+        String londonTimeZone = getUsersTimeZone("London");
+        print(format,kievTimeZone,warshawTimeZone,londonTimeZone);
+        System.out.println();
+        System.out.println("Events on today: " + calendar.getEvents(getDateFromTimeZone(kievTimeZone,format)));
+    }
+
+    public void part2(Calendar calendar){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the date: ");
+        String usersDate = scanner.nextLine();
+        System.out.println("Enter the event: ");
+        String event = scanner.nextLine();
+        calendar.addEvent(usersDate,event);
+        System.out.println("print all events on thi date?: y/n");
+        String answer = scanner.nextLine();
+        if (answer.equals("y")){
+            System.out.println(calendar.getEvents(usersDate));
+        }
 
 
+    }
+
+    public void part3(String format){
+        System.out.println("Enter your city: ");
+        String usersTimeZone = new Scanner(System.in).nextLine();
+        String timeZone = getUsersTimeZone(usersTimeZone);
+        print(format,timeZone);
 
 
+    }
+
+    public void part4(){
+        TimeZone timeZone = TimeZone.getDefault();
+        LocalDate localDate = LocalDate.now();
+        System.out.println("Date after one year: " + localDate.plus(1,ChronoUnit.YEARS));
+        System.out.println("Date after one month: " + localDate.plus(1,ChronoUnit.MONTHS));
+        System.out.println("Date after one week: " + localDate.plus(1,ChronoUnit.WEEKS));
+    }
+
+
+    public static void print(String  format,String... timeZone){
+        Arrays.stream(timeZone).forEach(el ->
+                System.out.println(el+ ": " + getDateFromTimeZone(el,format)));
+    }
+
+
+    public static void print(String  format,String timeZone){
+        var date = getDateFromTimeZone(timeZone,format);
+        System.out.println(date);
     }
 
     public static String getUsersTimeZone(String usersCity){
@@ -50,5 +102,12 @@ public class Main {
         dateFormat.setTimeZone(timeZone);
         return dateFormat.format(date);
     }
+
+
+    private static LocalDate createTempDate(String date,String format){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        return LocalDate.parse(date, formatter);
+    }
+
 
 }

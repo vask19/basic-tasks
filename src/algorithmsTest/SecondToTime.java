@@ -1,7 +1,5 @@
 package algorithmsTest;
-
 import java.time.LocalTime;
-
 public class SecondToTime {
     public static void main(String[] args) {
         int ml = 77682;
